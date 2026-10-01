@@ -3,3 +3,24 @@
 # 3. As a user, I can see the details of a movie list
 # 4. As a user, I can bookmark a movie inside a movie list
 # 5. As a user, I can destroy a bookmark
+
+
+# Attributes
+A movie has a title (e.g. "Wonder Woman 1984"), an overview ("Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s!"), a poster url and a rating (6.9).
+A list has a name (e.g. "Drama", "Comedy", "Classic", "To rewatch", … )
+A bookmark adds a movie to a list (e.g. Wonder Woman has been added to the “Girl Power” watch list). So each bookmark references a movie and a list, with a comment. The comment field is for the user to add a little note on the bookmark (e.g. Alan Turing recommended this movie).
+
+# Validation
+A movie must have a unique title and an overview.
+A list must have a unique name.
+A bookmark must be linked to a movie and a list, and the [movie, list] pairings should be unique.
+The comment of a bookmark cannot be shorter than 6 characters.
+
+# Associations
+A list has many bookmarks
+A list has many movies through bookmarks
+A movie has many bookmarks
+A bookmark belongs to a movie
+A bookmark belongs to a list
+You can’t delete a movie if it is referenced in at least one bookmark.
+When you delete a list, you should delete all associated bookmarks (but not the movies as they can be referenced in other lists).
