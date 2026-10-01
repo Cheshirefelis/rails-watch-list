@@ -6,5 +6,5 @@ class List < ApplicationRecord
   has_many :movies, through: :bookmarks
 
   # validations: A list must have a unique name.
-  validates :name, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 end
