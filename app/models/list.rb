@@ -4,4 +4,7 @@ class List < ApplicationRecord
 
   # Indirect relationship: One List -> Many Movies (via Bookmarks)
   has_many :movies, through: :bookmarks
+
+  # validations: A list must have a unique name.
+  validates :name, uniqueness: true
 end
