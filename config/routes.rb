@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "bookmarks/index"
+  get "bookmarks/new"
+  get "bookmarks/create"
   get "lists/index"
   get "lists/show"
   get "lists/new"
@@ -20,13 +23,13 @@ Rails.application.routes.draw do
   root to: "lists#index"
 
   # routes and actions for lists
-  resources :lists, except: [:edit, :update]
+  # resources :lists, except: [:edit, :update]
 
-  # #  nesting: bookmarks
-  # resources :lists, except: [:edit, :update,] do
-  #   resources :bookmarks, only: [:new, :create]
-  # end
+  #  nesting: bookmarks
+  resources :lists, except: [:edit, :update,] do
+    resources :bookmarks, only: [:new, :create]
+  end
 
-  # resources :bookmarks, only: :destroy
+  resources :bookmarks, only: :destroy
 
 end
