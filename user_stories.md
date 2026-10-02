@@ -1,9 +1,15 @@
 # 1. As a user, I can see all my movie lists
+A user can see all the lists
+GET "lists"
 # 2. As a user, I can create a movie list
+A user can create a new list
+GET "lists/new"
+POST "lists"
 # 3. As a user, I can see the details of a movie list
+A user can see the details of a given list and its name
+GET "lists/42"
 # 4. As a user, I can bookmark a movie inside a movie list
 # 5. As a user, I can destroy a bookmark
-
 
 # Attributes
 A movie has a title (e.g. "Wonder Woman 1984"), an overview ("Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s!"), a poster url and a rating (6.9).

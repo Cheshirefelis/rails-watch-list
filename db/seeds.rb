@@ -57,12 +57,12 @@ List.create!(name: "Speculative Fiction")
 puts "Lists created"
 
 puts "Creating bookmarks..."
-Bookmark.create!(comment: , movie_id: 1, list_id: 1)
-Bookmark.create!(comment: , movie_id: 2, list_id: 1)
-Bookmark.create!(comment: , movie_id: 3, list_id: 1)
-Bookmark.create!(comment: , movie_id: 4, list_id: 2)
-Bookmark.create!(comment: , movie_id: 5, list_id: 2)
-Bookmark.create!(comment: , movie_id: 6, list_id: 2)
-Bookmark.create!(comment: , movie_id: 2, list_id: 3)
+Bookmark.create!(comment: "Awesomesauce!", movie_id: 1, list_id: 1)
+Bookmark.create!(comment: "Fantastic acting", movie_id: 2, list_id: 1)
+Bookmark.create!(comment: "Great story overall", movie_id: 3, list_id: 1)
+Bookmark.create!(comment: "Watch again ASAP" , movie_id: 4, list_id: 2)
+Bookmark.create!(comment: "Amazing feature film", movie_id: 5, list_id: 2)
+Bookmark.create!(comment: "Mindbending", movie_id: 6, list_id: 2)
+Bookmark.create!(comment: "Eye-opening", movie_id: 2, list_id: 3)
 
 puts "Bookmarks created"
