@@ -19,7 +19,7 @@ class Bookmark < ApplicationRecord
   #   check if the combination of the movie *object* and list *object* already exists.
   #   Rails accesses the association. It automatically resolves the movie object to its ID.
   #   reads in English: "Ensure the movie is unique within the list."
-  validates :movie, uniqueness: { scope: :list }
+  validates :movie, uniqueness: { scope: :list, message: "is already in the list" }
   #   The comment of a bookmark cannot be shorter than 6 characters.
   validates :comment, length: {minimum: 6}
 end
