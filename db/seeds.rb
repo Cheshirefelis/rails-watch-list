@@ -7,3 +7,62 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+require "open-uri"
+require "json"
+
+puts "Cleaning up database..."
+# Bookmark.destroy_all
+Movie.destroy_all
+# List.destroy_all
+puts "Database cleaned"
+
+puts "Fetching movies..."
+url = "http://tmdb.lewagon.com/movie/top_rated"
+serialized = URI.open(url).read
+movies = JSON.parse(serialized)
+
+# url = "http://tmdb.lewagon.com/movie/top_rated"
+# 10.times do |i|
+#   puts "Importing movies from page #{i + 1}"
+#   movies = JSON.parse(URI.open("#{url}?page=#{i + 1}").read)["results"]
+#   movies.each do |movie|
+#     puts "Creating #{movie["title"]}"
+#     base_poster_url = "https://image.tmdb.org/t/p/original"
+#     Movie.create(
+#       title: movie["title"],
+#       overview: movie["overview"],
+#       poster_url: "#{base_poster_url}#{movie["backdrop_path"]}",
+#       rating: movie["vote_average"]
+#     )
+#   end
+# end
+
+puts "Creating movies..."
+movies["results"].each do |movie|
+  Movie.create!(
+      title: movie["title"],
+      overview: movie["overview"],
+      poster_url: "https://image.tmdb.org/t/p/w500<%= bookmark.movie.poster_url %>",
+      rating: movie["vote_average"]
+    )
+end
+
+puts "Movies created"
+
+puts "Creating lists..."
+List.create!(name: "SciFi-Masters")
+List.create!(name: "Speculative Fiction")
+
+puts "Lists created"
+
+puts "Creating bookmarks..."
+Bookmark.create!(comment: , movie_id: 1, list_id: 1)
+Bookmark.create!(comment: , movie_id: 2, list_id: 1)
+Bookmark.create!(comment: , movie_id: 3, list_id: 1)
+Bookmark.create!(comment: , movie_id: 4, list_id: 2)
+Bookmark.create!(comment: , movie_id: 5, list_id: 2)
+Bookmark.create!(comment: , movie_id: 6, list_id: 2)
+Bookmark.create!(comment: , movie_id: 2, list_id: 3)
+
+puts "Bookmarks created"
