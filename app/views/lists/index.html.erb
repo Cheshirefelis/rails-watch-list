@@ -7,3 +7,11 @@
     </li>
   <% end %>
 </div>
+
+<!-- "san_francisco.jpg" just uploaded to cloudinary -->
+<%= cl_image_tag("dsxiqmck3rtevxiygrvn",
+      width: 400, height: 300, crop: :fill) %>
+
+<!-- for face detection: image from cloudinary assets with faces -->
+<%= cl_image_tag("samples/people/bicycle",
+      width: 150, height: 150, crop: :thumb, gravity: :face) %>
